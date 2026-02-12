@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="form-group">
+        <fieldset class="form-fieldset w-100">
+            <legend><h1>Sign in</h1></legend>
+        <form class="register-form" method="POST">
+            {{ form.hidden_tag() }}
+            
+                
+
+                <div>
+                    {{ form.email.label }}
+                    <div>
+                        {{ form.email(class="form-control") }}
+                    </div>
+                    {% for error in form.email.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.password.label }}
+                    <div>
+                        {{ form.password(class="form-control") }}
+                    </div>
+                    {% for error in form.password.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.remember }}
+                    <span>{{ form.remember.label }}</span>
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn btn-outline-primary mt-3 mb-4") }}
+                </div>
+                </form>
+            </fieldset>
+    </div>
+{% endblock %}

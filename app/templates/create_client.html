@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block body %}
+    <div>
+        <fieldset class="form-fieldset">
+            <legend><h1>Create Client</h1></legend>
+        <form class="register-form" method="POST">
+            {{ form.hidden_tag() }}
+            
+                
+                <div>
+                    <span class="form-label">{{ form.name.label }}</span>
+                    <div>
+                        {{ form.name(class="form-control") }}
+                    </div>
+                    {% for error in form.name.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <span class="form-label">{{ form.email.label }}</span>
+                    <div>
+                        {{ form.email(class="form-control") }}
+                    </div>
+                    {% for error in form.email.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <span class="form-label">{{ form.phone.label }}</span>
+                    <div>
+                        {{ form.phone(class="form-control") }}
+                    </div>
+                    {% for error in form.phone.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <span class="form-label">{{ form.note.label }}</span>
+                    <div>
+                        {{ form.note(class="form-control") }}
+                    </div>
+                    {% for error in form.note.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn btn-primary mt-4") }}
+                </div>
+            </form>
+        </fieldset>
+        
+    </div>
+{% endblock %}

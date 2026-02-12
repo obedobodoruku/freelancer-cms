@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block body %}
+    <div>
+        <fieldset class="form-fieldset">
+            <legend><h1>CREATE PROJECT TASK</h1></legend>
+        <form class="register-form" method="POST">
+            {{ form.hidden_tag() }}
+            
+                <div>
+                    <span class="form-label">{{ form.title.label }}</span>
+                    <div>
+                        {{ form.title(class="form-control") }}
+                    </div>
+                    {% for error in form.title.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+
+                <div>
+                    <span class="form-label">{{ form.due_date.label }}</span>
+                    <div>
+                        {{ form.due_date(class="form-control") }}
+                    </div>
+                    {% for error in form.due_date.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <span class="form-label">{{ form.status.label }}</span>
+                    <div>
+                        {{ form.status(class="form-control") }}
+                    </div>
+                    {% for error in form.status.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+            </fieldset>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block body %}
+    {% if not clients %}
+        <h3>No Clients yet</h3>
+        <form method="post" action="{{ url_for('create_client') }}">
+            <button type="submit">Add Client</button>
+        </form>
+    {% endif %}
+    {% if clients %}
+        {% for client in clients %}
+        <ul>
+            <li>
+            <div class="client-info">
+                <h2>{{ client.name }}</h2>
+                <div>
+                    <small>{{ client.email }}</small>
+                    <span>{{ client.phone }}</span>
+                </div>
+                <div>
+                    <span style="font-size: 1.3rem; font-weight: bolder;">{{ client.note }}</span>
+                </div>
+                <hr>
+
+                {% if client.project %}
+                    <h1>Projects</h1>
+                    <hr>
+                    {% for project in client.project %}
+                        
+                        <ul>
+                            <li>
+                                <div>
+                                    
+                                    <h1>{{ project.title }}</h1>
+                                    <span>{{ project.description }}</span>
+                                    <h5>
+                                        Start on:
+                                        <span>{{ project.start_date }}</span>
+                                    </h5>
+                                    <h5>
+                                        Deadline:
+                                        <span>{{ project.deadline }}</span>
+                                    </h5>
+                                    <span style="font-weight: 500; font-size: 1.2rem;">Status: {{ project.status }}</span>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                        
+                        <a href="{{ url_for('project', project_id=project.id) }}">
+                            <button>View Project details</button>
+                        </a>
+                        <div style="margin-bottom: 24px;">
+                            <a href="{{ url_for('edit_project', project_id=project.id) }}">
+                                <button>Edit Project</button>
+                            </a>
+                        </div>
+                        <div style="margin-bottom: 24px;">
+                            <a href="{{ url_for('create_task', project_id=project.id) }}">
+                                <button>Create Task</button>
+                            </a>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                {%endif%}
+                
+                <div>
+                    <a href="{{ url_for('edit_client', client_id=client.id) }}">
+                        <button>Edit Client</button>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ url_for('delete_client', client_id=client.id) }}">
+                        <button>Delete</button>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ url_for('create_project', client_id=client.id) }}">
+                        <button>Create Project</button>
+                    </a>
+                </div>
+            </div>
+            </li>
+        </ul>
+        {% endfor %}.
+        <form method="post" action="{{ url_for('create_client') }}">
+            <button class="btn btn-outline-primary mt-3 mb-4" type="submit">Add Client</button>
+        </form>
+    {% endif %}
+    
+{% endblock %}

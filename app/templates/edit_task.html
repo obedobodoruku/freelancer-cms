@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block body %}
+    <div>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>EDIT TASK</legend>
+                <div>
+                    {{ form.title.label }}
+                    <div>
+                        {{ form.title }}
+                    </div>
+                    {% for error in form.title.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+
+                <div>
+                    {{ form.due_date.label }}
+                    <div>
+                        {{ form.due_date }}
+                    </div>
+                    {% for error in form.due_date.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.status.label }}
+                    <div>
+                        {{ form.status }}
+                    </div>
+                    {% for error in form.status.errors %}
+                        {% if error %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.submit }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
