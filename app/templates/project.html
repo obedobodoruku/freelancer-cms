@@ -15,7 +15,7 @@
                         Deadline:
                         <span>{{ project.deadline }}</span>
                     </h5>
-                    <span>{{ project.status }}</span>
+                    <span class="span">Status: {{ project.status }}</span>
                 </div>
                 
             </li>
@@ -24,19 +24,19 @@
 
         <div style="margin-bottom: 24px;">
             <a href="{{ url_for('edit_project', project_id=project.id) }}">
-                <button>Edit Project</button>
+                <button class="btn btn-primary mb-2">Edit Project</button>
             </a>
         </div>
 
         <div style="margin-bottom: 24px;">
             <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}">
-                <button type="submit">Delete Project</button>
+                <button class="btn btn-primary mb-2" type="submit">Delete Project</button>
             </form>
         </div>
 
         <div style="margin-bottom: 24px;">
             <form method="POST" action="{{ url_for('create_task', project_id=project.id) }}">
-                <button type="submit">Create Task</button>
+                <button class="btn btn-primary mb-2" type="submit">Create Task</button>
             </form>
         </div>
 
@@ -57,13 +57,13 @@
 
                     <div style="margin-bottom: 24px;">
                         <a href="{{ url_for('edit_task', task_id=task.id) }}">
-                            <button>Edit Task</button>
+                            <button class="btn btn-primary mb-2">Edit Task</button>
                         </a>
                     </div>
 
                     <div>
                         <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}">
-                            <button type="submit">Delete task</button>
+                            <button class="btn btn-primary mb-2" type="submit">Delete task</button>
                         </form>
                     </div>
                 </div>
