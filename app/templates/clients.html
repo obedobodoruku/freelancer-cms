@@ -31,16 +31,18 @@
                             <li>
                                 <div>
                                     
-                                    <h1>{{ project.title }}</h1>
-                                    <span>{{ project.description }}</span>
-                                    <h5>
+                                    <h3>{{ project.title }}</h3>
+                                    <div class="mb-3">
+                                        <span>{{ project.description }}</span>
+                                    </div>
+                                    <h6>
                                         Start on:
                                         <span>{{ project.start_date }}</span>
-                                    </h5>
-                                    <h5>
+                                    </h6>
+                                    <h6>
                                         Deadline:
                                         <span>{{ project.deadline }}</span>
-                                    </h5>
+                                    </h6>
                                     <span style="font-weight: 500; font-size: 1.2rem;">Status: {{ project.status }}</span>
                                 </div>
                                 
@@ -50,7 +52,7 @@
                         <a href="{{ url_for('project', project_id=project.id) }}">
                             <button class="btn btn-primary mt-3 mb-1">View Project details</button>
                         </a>
-                        <div style="margin-bottom: 24px;">
+                        <div>
                             <a href="{{ url_for('edit_project', project_id=project.id) }}">
                                 <button class="btn btn-primary mb-1">Edit Project</button>
                             </a>

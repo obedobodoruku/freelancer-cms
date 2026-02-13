@@ -6,37 +6,39 @@
             <li>
                 <div>
                     <h1>{{ project.title }}</h1>
-                    <span>{{ project.description }}</span>
-                    <h5>
+                    <div class="mb-3">
+                        <span>{{ project.description }}</span>
+                    </div>
+                    <h6>
                         Start on:
                         <span>{{ project.start_date }}</span>
-                    </h5>
-                    <h5>
+                    </h6>
+                    <h6>
                         Deadline:
                         <span>{{ project.deadline }}</span>
-                    </h5>
-                    <span class="span">Status: {{ project.status }}</span>
+                    </h6>
+                    <span style="font-weight: bolder;">Status: {{ project.status }}</span>
                 </div>
                 
             </li>
         </ul>
         
 
-        <div style="margin-bottom: 24px;">
+        <div class="mb-1">
             <a href="{{ url_for('edit_project', project_id=project.id) }}">
-                <button class="btn btn-primary mb-2">Edit Project</button>
+                <button class="btn btn-primary">Edit Project</button>
             </a>
         </div>
 
-        <div style="margin-bottom: 24px;">
+        <div class="mb-1">
             <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}">
-                <button class="btn btn-primary mb-2" type="submit">Delete Project</button>
+                <button class="btn btn-primary" type="submit">Delete Project</button>
             </form>
         </div>
 
-        <div style="margin-bottom: 24px;">
+        <div class="mb-1">
             <form method="POST" action="{{ url_for('create_task', project_id=project.id) }}">
-                <button class="btn btn-primary mb-2" type="submit">Create Task</button>
+                <button class="btn btn-primary" type="submit">Create Task</button>
             </form>
         </div>
 
