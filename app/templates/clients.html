@@ -48,16 +48,16 @@
                         </ul>
                         
                         <a href="{{ url_for('project', project_id=project.id) }}">
-                            <button class="btn btn-primary mt-3 mb-2">View Project details</button>
+                            <button class="btn btn-primary mt-3 mb-1">View Project details</button>
                         </a>
                         <div style="margin-bottom: 24px;">
                             <a href="{{ url_for('edit_project', project_id=project.id) }}">
-                                <button class="btn btn-primary mb-2">Edit Project</button>
+                                <button class="btn btn-primary mb-1">Edit Project</button>
                             </a>
                         </div>
                         <div style="margin-bottom: 24px;">
                             <a href="{{ url_for('create_task', project_id=project.id) }}">
-                                <button class="btn btn-primary mb-4">Create Task</button>
+                                <button class="btn btn-primary mb-2">Create Task</button>
                             </a>
                         </div>
                         <hr>
@@ -66,24 +66,25 @@
                 
                 <div>
                     <a href="{{ url_for('edit_client', client_id=client.id) }}">
-                        <button class="btn btn-primary mb-4">Edit Client</button>
+                        <button class="btn btn-primary mb-1">Edit Client</button>
                     </a>
                 </div>
                 <div>
                     <a href="{{ url_for('delete_client', client_id=client.id) }}">
-                        <button class="btn btn-primary mb-4">Delete</button>
+                        <button class="btn btn-primary mb-1">Delete</button>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ url_for('create_project', client_id=client.id) }}">
-                        <button class="btn btn-primary mb-4">Create Project</button>
+                        <button class="btn btn-primary mb-1">Create Project</button>
                     </a>
                 </div>
             </div>
             </li>
         </ul>
-        {% endfor %}.
+        <hr>
+        {% endfor %}
         <form method="post" action="{{ url_for('create_client') }}">
             <button class="btn btn-outline-primary mt-3 mb-4" type="submit">Add Client</button>
         </form>
