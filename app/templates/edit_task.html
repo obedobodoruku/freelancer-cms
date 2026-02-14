@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
     <div>
-        <form method="POST">
+        <fieldset class="form-fieldset">
+            <legend><h1 style="font-weight: bolder;">EDIT PROJECT TASK</h1></legend>
+        <form class="register-form" method="POST">
             {{ form.hidden_tag() }}
-            <fieldset>
-                <legend>EDIT TASK</legend>
+            
                 <div>
-                    {{ form.title.label }}
+                    <span class="form-label">{{ form.title.label }}</span>
                     <div>
-                        {{ form.title }}
+                        {{ form.title(class="form-control") }}
                     </div>
                     {% for error in form.title.errors %}
                         {% if error %}
@@ -19,9 +20,9 @@
 
 
                 <div>
-                    {{ form.due_date.label }}
+                    <span class="form-label">{{ form.due_date.label }}</span>
                     <div>
-                        {{ form.due_date }}
+                        {{ form.due_date(class="form-control") }}
                     </div>
                     {% for error in form.due_date.errors %}
                         {% if error %}
@@ -31,9 +32,9 @@
                 </div>
 
                 <div>
-                    {{ form.status.label }}
+                    <span class="form-label">{{ form.status.label }}</span>
                     <div>
-                        {{ form.status }}
+                        {{ form.status(class="form-control") }}
                     </div>
                     {% for error in form.status.errors %}
                         {% if error %}
@@ -43,9 +44,10 @@
                 </div>
 
                 <div>
-                    {{ form.submit }}
+                    {{ form.submit(class="btn btn-primary") }}
                 </div>
+            </form>
             </fieldset>
-        </form>
+        
     </div>
 {% endblock %}

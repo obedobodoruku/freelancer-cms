@@ -7,8 +7,10 @@
         </form>
     {% endif %}
     {% if clients %}
+        
         <h1 class="header-1">Clients</h1>
         {% for client in clients %}
+        <div class="form-fieldset mb-5">
         <ul>
             <li>
             <div class="client-info">
@@ -33,17 +35,18 @@
                                     
                                     <h3>{{ project.title }}</h3>
                                     <div class="mb-3">
+                                        <span style="font-weight: bolder;">Description:</span>
                                         <span>{{ project.description }}</span>
                                     </div>
-                                    <h6>
-                                        Start on:
+                                    <p>
+                                        <span style="font-weight: bolder;">Start on:</span>
                                         <span>{{ project.start_date }}</span>
-                                    </h6>
-                                    <h6>
-                                        Deadline:
+                                    </p>
+                                    <p>
+                                        <span style="font-weight: bolder;">Deadline:</span>
                                         <span>{{ project.deadline }}</span>
-                                    </h6>
-                                    <span style="font-weight: 500; font-size: 1.2rem;">Status: {{ project.status }}</span>
+                                    </p>
+                                    <span style="font-weight: bolder;">Status: {{ project.status }}</span>
                                 </div>
                                 
                             </li>
@@ -86,10 +89,12 @@
             </li>
         </ul>
         <hr>
+        </div>
         {% endfor %}
         <form method="post" action="{{ url_for('create_client') }}">
             <button class="btn btn-outline-primary mt-3 mb-4" type="submit">Add Client</button>
         </form>
+        
     {% endif %}
     
 {% endblock %}

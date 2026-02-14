@@ -2,29 +2,27 @@
 {% block body %}
     
     <div>
-        <ul>
-            <li>
-                <div>
-                    <h1>{{ project.title }}</h1>
-                    <div class="mb-3">
-                        <span>{{ project.description }}</span>
-                    </div>
-                    <h6>
-                        Start on:
-                        <span>{{ project.start_date }}</span>
-                    </h6>
-                    <h6>
-                        Deadline:
-                        <span>{{ project.deadline }}</span>
-                    </h6>
-                    <span style="font-weight: bolder;">Status: {{ project.status }}</span>
-                </div>
+        <div>
+            <h1>{{ project.title }}</h1>
+            <div class="mb-3">
+                <span style="font-weight: bolder;">Description:</span>
+                <span>{{ project.description }}</span>
+            </div>
+            <p>
+                <span style="font-weight: bolder;">Start on:</span>
+                <span>{{ project.start_date }}</span>
+            </p>
+            <p>
+                <span style="font-weight: bolder;">Deadline:</span>
+                <span>{{ project.deadline }}</span>
+            </p>
+            <span style="font-weight: bolder;">Status: {{ project.status }}</span>
+        </div>
                 
-            </li>
-        </ul>
+        
         
 
-        <div class="mb-1">
+        <div class="mt-5 mb-1">
             <a href="{{ url_for('edit_project', project_id=project.id) }}">
                 <button class="btn btn-primary">Edit Project</button>
             </a>
@@ -42,34 +40,40 @@
             </form>
         </div>
 
+        <hr>
 
-        {%  if project.tasks %}
+        {% if project.tasks %}
+            <div class="mt-5">
             <h1>Tasks</h1>
             {% for task in project.tasks %}
                 <div>
                     <h3>{{ task.title }}</h3>
-                    <span>{{ task.status }}</span>
+                    <p>
+                        <span style="font-weight: bolder;">Status: </span>
+                        <span style="font-weight: bolder;">{{ task.status }}</span>
+                    </p>
                     <div>
-                        <span>
-                            Due:
-                            <h4>{{ task.due_date }}</h4>
-                        </span>
+                        <p>
+                            <span style="font-weight: bolder;">Due:</span>
+                            <span>{{ task.due_date }}</span>
+                        </p>
                     </div>
                     
 
-                    <div style="margin-bottom: 24px;">
+                    <div class="mb-2">
                         <a href="{{ url_for('edit_task', task_id=task.id) }}">
-                            <button class="btn btn-primary mb-2">Edit Task</button>
+                            <button class="btn btn-primary">Edit Task</button>
                         </a>
                     </div>
 
                     <div>
                         <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}">
-                            <button class="btn btn-primary mb-2" type="submit">Delete task</button>
+                            <button class="btn btn-primary" type="submit">Delete task</button>
                         </form>
                     </div>
                 </div>
             {% endfor %}
+            </div>
         {% endif %}
     </div>
             
