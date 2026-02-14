@@ -30,7 +30,7 @@
 
         <div class="mb-1">
             <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}">
-                <button class="btn btn-primary" type="submit">Delete Project</button>
+                <button style="font-weight: bolder;" class="btn btn-danger" type="submit">Delete Project</button>
             </form>
         </div>
 
@@ -44,10 +44,12 @@
 
         {% if project.tasks %}
             <div class="mt-5">
-            <h1>Tasks</h1>
+            <h1 style="font-weight: bolder;">Tasks</h1>
+            <hr>
             {% for task in project.tasks %}
                 <div>
-                    <h3>{{ task.title }}</h3>
+                    <span style="font-weight: bolder; font-size: 1.2rem;">Task Title:</span>
+                    <p>{{ task.title }}</p>
                     <p>
                         <span style="font-weight: bolder;">Status: </span>
                         <span style="font-weight: bolder;">{{ task.status }}</span>
@@ -68,7 +70,7 @@
 
                     <div>
                         <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}">
-                            <button class="btn btn-primary" type="submit">Delete task</button>
+                            <button style="font-weight: bolder;" class="btn btn-danger" type="submit">Delete task</button>
                         </form>
                     </div>
                 </div>
