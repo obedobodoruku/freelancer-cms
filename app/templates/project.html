@@ -3,7 +3,7 @@
     
     <div>
         <div>
-            <h1>{{ project.title }}</h1>
+            <h1 style="font-weight: bolder;">{{ project.title }}</h1>
             <div class="mb-3">
                 <span style="font-weight: bolder;">Description:</span>
                 <span>{{ project.description }}</span>
@@ -47,7 +47,7 @@
             <h1 style="font-weight: bolder;">Tasks</h1>
             <hr>
             {% for task in project.tasks %}
-                <div>
+                <div class="mb-5">
                     <span style="font-weight: bolder; font-size: 1.2rem;">Task Title:</span>
                     <p>{{ task.title }}</p>
                     <p>
