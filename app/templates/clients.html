@@ -3,7 +3,7 @@
     {% if not clients %}
         <h3>No Clients yet</h3>
         <form method="post" action="{{ url_for('create_client') }}">
-            <button type="submit">Add Client</button>
+            <button class="btn btn-outline-primary mt-3 mb-4" type="submit">Add Client</button>
         </form>
     {% endif %}
     {% if clients %}
@@ -76,7 +76,7 @@
                 </div>
                 <div>
                     <a href="{{ url_for('delete_client', client_id=client.id) }}">
-                        <button style="font-weight: bolder;" class="btn btn-danger mb-1">Delete</button>
+                        <button style="font-weight: bolder;" class="btn btn-danger mb-1">Delete Client</button>
                     </a>
                 </div>
 
